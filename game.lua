@@ -25,6 +25,19 @@ function Game.load()
 		top = 400
 	}
 
+	--test buttons
+	local f = function ()
+		h.parts.number = 6
+	end
+	local b = button:new(10, 10, "Draw Human", 150, 50, f)
+	table.insert(buttons, b)
+
+	local g = function ()
+		h.parts.number = 0
+	end
+	b = button:new(170, 10, "Erase Human", 150, 50, g)
+	table.insert(buttons, b)
+
 	ChoseKeyboard = kb.alphabet
 	for i = 1, 3 do
 		for j = 1, #ChoseKeyboard[i] do
@@ -32,6 +45,8 @@ function Game.load()
 			table.insert(buttons, b)
 		end
 	end
+
+
 end
 
 function Game.update(dt)
@@ -39,7 +54,7 @@ function Game.update(dt)
 end
 
 function Game.draw()
-	love.graphics.print(text, 100, 500)
+	love.graphics.print(text, 0, 580)
 	h:draw()
 	for i=1, #buttons do
 		buttons[i]:draw()
