@@ -10,7 +10,7 @@ require("button")
 function love.load(arg)
 	--if arg[#arg] == "-debug" then require("mobdebug").start() end
 	mainFont = love.graphics.newFont("arial.ttf", 20);
-	state = Game
+	state = MainMenu
 	if state.load then state.load() end
 end
 
