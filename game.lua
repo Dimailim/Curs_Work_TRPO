@@ -29,19 +29,20 @@ function Game.load()
 	local f = function ()
 		h.parts.number = 6
 	end
-	local b = button:new(10, 10, "Draw Human", 150, 50, f)
+	local b = buttonmenu:new(10, 10, "Нарисовать человечка", 250, 100, f)
 	table.insert(buttons, b)
 
 	local g = function ()
 		h.parts.number = 0
 	end
-	b = button:new(170, 10, "Erase Human", 150, 50, g)
+	b = buttonmenu:new(270, 10, "Стереть человечка", 250, 100, g)
 	table.insert(buttons, b)
+	--test buttons end
 
 	ChoseKeyboard = kb.alphabet
 	for i = 1, 3 do
 		for j = 1, #ChoseKeyboard[i] do
-			b=button:new((kb.size + kb.padding) * (j - 1) + kb.spacing[i], (kb.size + kb.padding) * (i - 1) + kb.top, ChoseKeyboard[i][j])
+			b=wordsquare:new((kb.size + kb.padding) * (j - 1) + kb.spacing[i], (kb.size + kb.padding) * (i - 1) + kb.top, ChoseKeyboard[i][j])
 			table.insert(buttons, b)
 		end
 	end

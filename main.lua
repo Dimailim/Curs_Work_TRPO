@@ -6,8 +6,6 @@ require("menu")
 require("game")
 require("human")
 require("button")
-require("buttonmenu")
-require("wordsquare")
 
 function love.load(arg)
 	--if arg[#arg] == "-debug" then require("mobdebug").start() end
@@ -36,4 +34,9 @@ end
 
 function love.mousereleased(x, y, button)
 	if state.mousereleased then state.mousereleased(x, y, button) end
+end
+
+function changeState(s)
+	state = s
+	state.load()
 end

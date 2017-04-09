@@ -5,11 +5,10 @@ function MainMenu.load()
 	local height = love.graphics.getHeight( )
 
 	local f = function ()
-		state = Game
-		state.load()
+		changeState(Game)
 	end
 	local w, h = 150, 50
-	start = button:new(width / 2 - w / 2, height / 2 - h / 2, "Start", w, h, f)
+	start = buttonmenu:new(width / 2 - w / 2, height / 2 - h / 2, "Старт", w, h, f)
 end
 
 function MainMenu.update(dt)
