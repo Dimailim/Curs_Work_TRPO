@@ -34,6 +34,9 @@ function human:draw()
   for i = 1, self.parts.number do
     self.parts[i]()
   end
+    love.graphics.line(self.x-100, 100, self.x-100, 400)
+    love.graphics.line(400, 100, 300, 100)
+    love.graphics.line(400, 100, 400, 130)
   --love.graphics.print("LOL", 100, 100)
   --love.graphics.rectangle("line",200,200,50,50)
 end
