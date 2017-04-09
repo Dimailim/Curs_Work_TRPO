@@ -1,13 +1,21 @@
 function extended (child, parent)
-setmetatable(child,{__index = parent})
+	setmetatable(child,{__index = parent})
 end
 
+require("menu")
+require("game")
 require("human")
 require("button")
 require("buttonmenu")
 require("wordsquare")
 
 function love.load(arg)
+<<<<<<< HEAD
+	--if arg[#arg] == "-debug" then require("mobdebug").start() end
+	mainFont = love.graphics.newFont("arial.ttf", 20);
+	state = MainMenu
+	if state.load then state.load() end
+=======
 --if arg[#arg] == "-debug" then require("mobdebug").start() end
 text= " "
 mainFont = love.graphics.newFont("arial.ttf", 20);
@@ -37,15 +45,22 @@ end
 
 print(buttons[1].x.." "..buttons[1].y.." "..buttons[1].char)
 print(buttons[32].x.." "..buttons[32].y.." "..buttons[32].char)
+>>>>>>> refs/remotes/origin/master
 end
 
 function love.update(dt)
---require("mobdebug").on()
-mx, my = love.mouse.getPosition( )
---require("mobdebug").off()
+	--require("mobdebug").on()
+	mx, my = love.mouse.getPosition( )
+	if state.update then state.update(dt) end
+	--require("mobdebug").off()
 end
 
 function love.draw()
+<<<<<<< HEAD
+	love.graphics.setFont(mainFont);
+	love.graphics.setColor(255, 255, 255, 255)
+	if state.draw then state.draw() end
+=======
 love.graphics.setFont(mainFont);
 love.graphics.setColor(255, 255, 255, 255)
 h:draw()
@@ -54,32 +69,14 @@ for i=1, #buttons do
 end
 
 love.graphics.print(text, 100, 500)
+>>>>>>> refs/remotes/origin/master
 end
 
 
 function love.mousepressed(x, y, button, istouch)
-if button == 1 then -- the primary button
-
-end
-
-if button == 2 then
-
-end
+	if state.mousepressed then state.mousepressed(x, y, button) end
 end
 
 function love.mousereleased(x, y, button)
-h.parts.number = (h.parts.number + 1) % 7
-
-for i=1, #buttons do
-		buttons[i]:mousereleased(x,y,button)
-end
-
-if button == 1 then
-
-end
-
-if button == 2 then
-
-end
-
+	if state.mousereleased then state.mousereleased(x, y, button) end
 end
