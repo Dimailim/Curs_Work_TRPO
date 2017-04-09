@@ -1,4 +1,5 @@
 button={}
+<<<<<<< HEAD
 
 function button:new(x, y, text, width, height, f)
 	local t = {}
@@ -14,6 +15,18 @@ function button:new(x, y, text, width, height, f)
 	end
 
 	return setmetatable(t, {__index = self})
+=======
+button.__index=button
+function button:new(x, y, p)
+  local t = {}
+  t.x = x or 400
+  t.y = y or 300
+  t.char= p or "!"
+  t.size = 40
+  t.color = {255, 255, 255, 255}
+
+  return setmetatable(t,{__index = self})
+>>>>>>> refs/remotes/origin/master
 end
 
 function button:draw()
