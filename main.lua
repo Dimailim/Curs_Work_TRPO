@@ -4,12 +4,14 @@ end
 
 require("human")
 require("button")
+require("buttonmenu")
+require("wordsquare")
 
 function love.load(arg)
 --if arg[#arg] == "-debug" then require("mobdebug").start() end
 text= " "
 mainFont = love.graphics.newFont("arial.ttf", 20);
-h = human:new(400, 160, 0)
+h = human:new(400, 180, 0)
 buttons= {}
 kb = {
 	{ 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ' },
@@ -22,7 +24,7 @@ kb = {
 		153,
 		198
 	},
-	top = 400
+	top = 450
 }
 
 for i = 1, 3 do
@@ -50,6 +52,7 @@ h:draw()
 for i=1, #buttons do
 	buttons[i]:draw()
 end
+
 love.graphics.print(text, 100, 500)
 end
 

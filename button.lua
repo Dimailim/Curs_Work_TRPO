@@ -1,5 +1,5 @@
 button={}
-
+button.__index=button
 function button:new(x, y, p)
   local t = {}
   t.x = x or 400
