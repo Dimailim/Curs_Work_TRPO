@@ -60,6 +60,7 @@ function Game.mousereleased(x, y, button)
 end
 
 function generateWord()
+	math.randomseed(os.time())
 	chosenWord = math.random(#words)
 	text = words[chosenWord]
 	--throw words[chosenWord] to build squares for word
