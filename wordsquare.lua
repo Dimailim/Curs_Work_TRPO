@@ -32,5 +32,13 @@ function wordsquare:onClick(button)
 		self.color = {255, 255, 255, 255}
 	end
 	text = text..self.char
-	--throw char to logic
+	--example below
+	--[[
+	local flag = getChar(self.char)
+	if flag then
+		self.color = {0, 255, 0, 255}
+	else
+		self.color = {255, 0, 0, 255}
+	end
+	]]
 end
