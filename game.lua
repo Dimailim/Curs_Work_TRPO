@@ -19,10 +19,9 @@ function Game.load()
 	table.insert(buttons, b)
 	--test buttons end
 
-	ChoseKeyboard = kb.alphabet
 	for i = 1, 3 do
 		for j = 1, #ChoseKeyboard[i] do
-			b = wordsquare:new((kb.size + kb.padding) * (j - 1) + kb.spacing[i], (kb.size + kb.padding) * (i - 1) + kb.top, ChoseKeyboard[i][j])
+			b = button:new((kb.size + kb.padding) * (j - 1) + kb.spacing[i], (kb.size + kb.padding) * (i - 1) + kb.top, ChoseKeyboard[i][j])
 			table.insert(buttons, b)
 		end
 	end

@@ -20,10 +20,26 @@ function button:draw()
 	love.graphics.setColor(self.color)
 	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
 	love.graphics.printf( self.char, self.x, self.y+self.height/2-mainFont:getHeight( )/2, self.width, "center" )
+
+	if self.color[2] ~= 255 then
+		love.graphics.line(self.x, self.y, self.x + self.width, self.y + self.height)
+		love.graphics.line(self.x + self.width, self.y, self.x, self.y + self.height)
+	end
+
+	if self.color[1] ~= 255 then
+		love.graphics.circle("line", self.x + self.width / 2, self.y + self.height / 2, math.min(self.width, self.height) / 2, 32)
+	end
 end
 
 function button:onClick(button)
-	print("Button:onClick used, when shouldn't")
+	local flag = getChar(self.char)
+	if flag then
+		--char was right
+		self.color = {0, 255, 0, 255}
+	else
+		--chat wasn't right'
+		self.color = {255, 0, 0, 255}
+	end
 end
 
 function button:mousereleased(x, y, button)

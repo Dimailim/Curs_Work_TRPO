@@ -18,30 +18,4 @@ function wordsquare:draw()
 	love.graphics.setColor(self.color)
 	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
 	love.graphics.printf( self.char, self.x, self.y+self.height/2-mainFont:getHeight( )/2, self.width, "center" )
-
-	if self.color[2] ~= 255 then
-		love.graphics.line(self.x, self.y, self.x + self.width, self.y + self.height)
-		love.graphics.line(self.x + self.width, self.y, self.x, self.y + self.height)
-	end
-
-	if self.color[1] ~= 255 then
-		love.graphics.circle("line", self.x + self.width / 2, self.y + self.height / 2, math.min(self.width, self.height) / 2, 32)
-	end
-end
-
-function wordsquare:onClick(button)
-	--[[
-	if button == 1 then
-		self.color = {255, 0, 0, 255}
-	else
-		self.color = {255, 255, 255, 255}
-	end
-	text = text..self.char]]
-	--example below
-	local flag = getChar(self.char)
-	if flag then
-		self.color = {0, 255, 0, 255}
-	else
-		self.color = {255, 0, 0, 255}
-	end
 end

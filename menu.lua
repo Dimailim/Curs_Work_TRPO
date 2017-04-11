@@ -30,6 +30,7 @@ function MainMenu.load()
 		},
 		top = 400
 	}
+	ChoseKeyboard = kb.alphabet
 end
 
 function MainMenu.update(dt)
