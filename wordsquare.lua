@@ -26,19 +26,18 @@ function wordsquare:draw()
 end
 
 function wordsquare:onClick(button)
+	--[[
 	if button == 1 then
 		self.color = {255, 0, 0, 255}
 	else
 		self.color = {255, 255, 255, 255}
 	end
-	text = text..self.char
+	text = text..self.char]]
 	--example below
-	--[[
 	local flag = getChar(self.char)
 	if flag then
 		self.color = {0, 255, 0, 255}
 	else
 		self.color = {255, 0, 0, 255}
 	end
-	]]
 end
