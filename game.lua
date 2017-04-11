@@ -27,6 +27,12 @@ function Game.load()
 		end
 	end
 
+	words = {	"АИСТ", "БЕЛКА", "ВАЗА", "ГИТАРА", "ДРОЗД", "ЕНОТ", "ЖУРАВЛЬ",
+				"ЗОНТ", "ИНДЮК", "ЙОГУРТ", "КАРАСЬ", "ЛЕБЕДЬ", "МЯЧ", "НИТКИ", "ОКУНЬ",
+				"ПИРАМИДА", "РЕДЬКА", "СОРОКА", "ТРУБА", "УТКА", "ФЛАГ", "ХЛЕБ", "ЦАПЛЯ",
+				"ЧАЙКА", "ШАРИК", "ЩЕТКА", "ЭЛЬФ", "ЮЛА", "ЯБЛОКО"
+	}
+	generateWord()
 
 end
 
@@ -52,4 +58,21 @@ function Game.mousereleased(x, y, button)
 	for i=1, #buttons do
 			buttons[i]:mousereleased(x, y, button)
 	end
+end
+
+function generateWord()
+	chosenWord = math.random(#words)
+	--throw words[chosenWord] to build squares for word
+end
+
+function getChar(char)
+	local flag = false
+	for i, v in ipairs(words[chosenWord]) do
+		if v == char then
+			--throw right char (i, v)
+			flag = true
+		end
+	end
+
+	return flag
 end
