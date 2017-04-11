@@ -38,5 +38,5 @@ end
 
 function changeState(s)
 	state = s
-	state.load()
+	if state.load then state.load() end
 end
