@@ -62,17 +62,23 @@ end
 
 function generateWord()
 	chosenWord = math.random(#words)
+	text = words[chosenWord]
 	--throw words[chosenWord] to build squares for word
 end
 
 function getChar(char)
 	local flag = false
-	for i, v in ipairs(words[chosenWord]) do
-		if v == char then
-			--throw right char (i, v)
+	local s = 0
+	repeat
+		s = string.find(words[chosenWord], char, s + 1)
+		if s ~= nil then
 			flag = true
+			--throw right char (i, v)
 		end
-	end
+	until s == nil
 
 	return flag
 end
+--
+
+

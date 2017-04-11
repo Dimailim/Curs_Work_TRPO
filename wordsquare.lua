@@ -23,6 +23,10 @@ function wordsquare:draw()
 		love.graphics.line(self.x, self.y, self.x + self.width, self.y + self.height)
 		love.graphics.line(self.x + self.width, self.y, self.x, self.y + self.height)
 	end
+
+	if self.color[1] ~= 255 then
+		love.graphics.circle("line", self.x + self.width / 2, self.y + self.height / 2, math.min(self.width, self.height) / 2, 32)
+	end
 end
 
 function wordsquare:onClick(button)
