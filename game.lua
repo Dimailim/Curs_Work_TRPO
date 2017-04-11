@@ -67,6 +67,7 @@ end
 
 function getChar(char)
 	local flag = false
+	for i, v in ipairs(words[chosenWord]) do
 		if v == char then
 			--throw right char (i, v)
 			flag = true
