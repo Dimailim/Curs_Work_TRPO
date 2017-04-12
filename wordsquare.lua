@@ -21,9 +21,14 @@ function wordsquare:draw()
 end
 function lengthWord(size)
 	characters = {}
+	local width = love.graphics.getWidth()
+	local squareWidth = 40
+	local padding = 5
+	local spacing =(width - squareWidth*size - padding *(size-1))/2
+	local top = 50
 	for  i = 1 , size do
-		characters[i] = wordsquare:new(400,50)
-end
+		characters[i] = wordsquare:new(spacing + (i - 1) * (squareWidth + padding), top)
+	end
 end
 
 function charpos(position, char)
