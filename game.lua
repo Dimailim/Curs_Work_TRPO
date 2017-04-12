@@ -35,6 +35,16 @@ function Game.load()
 
 end
 
+function lengthWord(size)
+	characters = {}
+	for  i = 1 , size do
+		characters[i] = wordsquare:new(200,160)
+end
+
+function charpos(position, char)
+	characters[position].text = char
+end
+
 function Game.update(dt)
 
 end
@@ -63,7 +73,7 @@ function generateWord()
 	math.randomseed(os.time())
 	chosenWord = math.random(#words)
 	text = words[chosenWord]
-	--throw words[chosenWord] to build squares for word
+	lengthWord(string.len(words[chosenWord]))
 end
 
 function getChar(char)
@@ -73,12 +83,12 @@ function getChar(char)
 		s = string.find(words[chosenWord], char, s + 1)
 		if s ~= nil then
 			flag = true
-			--throw right char (i, v)
+			charpos(s,char)
 		end
 	until s == nil
 
 	return flag
 end
---
+end
 
 
