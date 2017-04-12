@@ -15,7 +15,7 @@ function button:new(x, y, text, width, height)
 
 	return setmetatable(t, {__index = self})
 end
-
+--
 function button:draw()
 	love.graphics.setColor(self.color)
 	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
@@ -30,7 +30,7 @@ function button:draw()
 		love.graphics.circle("line", self.x + self.width / 2, self.y + self.height / 2, math.min(self.width, self.height) / 2, 32)
 	end
 end
-
+--
 function button:onClick(button)
 	local flag = getChar(self.char)
 	if flag then
@@ -41,11 +41,11 @@ function button:onClick(button)
 		self.color = {255, 0, 0, 255}
 	end
 end
-
+--
 function button:mousereleased(x, y, button)
 	if x >= self.x and x <= self.x + self.width
 	and y >= self.y and y <= self.y + self.height   then
 		self:onClick(button)
 	end
 end
-
+--

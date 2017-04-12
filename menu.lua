@@ -32,19 +32,20 @@ function MainMenu.load()
 	}
 	ChoseKeyboard = kb.alphabet
 end
-
+--
 function MainMenu.update(dt)
 
 end
-
+--
 function MainMenu.draw()
 	start:draw()
 end
-
+--
 function MainMenu.mousepressed(x, y, button, istouch)
 
 end
-
+--
 function MainMenu.mousereleased(x, y, button)
 	start:mousereleased(x,y,button)
 end
+--

@@ -1,25 +1,19 @@
 Game = {}
 
 function Game.load()
-	text= " "
+	text = " "
 	h = human:new(400, 160, 0)
 	buttons= {}
-	--[[
+
 	--test buttons
 	local f = function ()
-		h.parts.number = 6
+		changeState(MainMenu)
 	end
-	local b = buttonmenu:new(10, 10, "Нарисовать человечка", 250, 100, f)
-	table.insert(buttons, b)
-
-	local g = function ()
-		h.parts.number = 0
-	end
-	b = buttonmenu:new(270, 10, "Стереть человечка", 250, 100, g)
+	local b = buttonmenu:new(690, 10, "В меню", 100, 50, f)
 	table.insert(buttons, b)
 	--test buttons end
-	]]
-	for i = 1, 3 do
+
+	for i = 1, #ChoseKeyboard do
 		for j = 1, #ChoseKeyboard[i] do
 			b = button:new((kb.size + kb.padding) * (j - 1) + kb.spacing[i], (kb.size + kb.padding) * (i - 1) + kb.top, ChoseKeyboard[i][j])
 			table.insert(buttons, b)
@@ -34,45 +28,43 @@ function Game.load()
 	generateWord()
 
 end
-
-
-
+--
 function Game.update(dt)
 
 end
-
+--
 function Game.draw()
 	love.graphics.print(text, 0, 580)
 	h:draw()
-	for i=1, #buttons do
+	for i = 1, #buttons do
 		buttons[i]:draw()
 	end
 
-	for i=1, #characters do
+	for i = 1, #characters do
 		characters[i]:draw()
 	end
 
 end
-
+--
 function Game.mousepressed(x, y, button)
 
 end
-
+--
 function Game.mousereleased(x, y, button)
 	h.parts.number = (h.parts.number + 1) % 7
 
-	for i=1, #buttons do
+	for i = 1, #buttons do
 			buttons[i]:mousereleased(x, y, button)
 	end
 end
-
+--
 function generateWord()
 	math.randomseed(os.time())
 	chosenWord = math.random(#words)
 	text = words[chosenWord]
 	lengthWord(string.len(words[chosenWord]) / 2)
 end
-
+--
 function getChar(char)
 	local flag = false
 	local s = 0
@@ -80,12 +72,11 @@ function getChar(char)
 		s = string.find(words[chosenWord], char, s + 1)
 		if s ~= nil then
 			flag = true
-			print((math.floor(s / 2) + 1).." "..char)
 			charpos(math.floor(s / 2) + 1, char)
 		end
 	until s == nil
 
 	return flag
 end
-
+--
 

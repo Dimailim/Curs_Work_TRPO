@@ -17,9 +17,10 @@ function buttonmenu:new(x, y, text, width, height, f)
 
 	return setmetatable(t, {__index = self})
 end
-
+--
 function buttonmenu:draw()
 	love.graphics.setColor(self.color)
 	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
 	love.graphics.printf( self.char, self.x, self.y+self.height/2-mainFont:getHeight( )/2, self.width, "center" )
 end
+--
