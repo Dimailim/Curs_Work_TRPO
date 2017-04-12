@@ -6,7 +6,7 @@ function wordsquare:new(x, y, text, width, height)
 	local t = {}
 	t.x = x or 400
 	t.y = y or 300
-	t.char= text or "!"
+	t.char= text or " "
 	t.width = width or 40
 	t.height = height or width or 40
 	t.color = {255, 255, 255, 255}
@@ -18,4 +18,14 @@ function wordsquare:draw()
 	love.graphics.setColor(self.color)
 	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
 	love.graphics.printf( self.char, self.x, self.y+self.height/2-mainFont:getHeight( )/2, self.width, "center" )
+end
+function lengthWord(size)
+	characters = {}
+	for  i = 1 , size do
+		characters[i] = wordsquare:new(400,50)
+end
+end
+
+function charpos(position, char)
+	characters[position].text = char
 end

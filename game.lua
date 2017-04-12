@@ -35,15 +35,7 @@ function Game.load()
 
 end
 
-function lengthWord(size)
-	characters = {}
-	for  i = 1 , size do
-		characters[i] = wordsquare:new(200,160)
-end
 
-function charpos(position, char)
-	characters[position].text = char
-end
 
 function Game.update(dt)
 
@@ -55,6 +47,11 @@ function Game.draw()
 	for i=1, #buttons do
 		buttons[i]:draw()
 	end
+	
+	for i=1, #characters do
+		characters[i]:draw()
+	end
+	
 end
 
 function Game.mousepressed(x, y, button)
@@ -88,7 +85,6 @@ function getChar(char)
 	until s == nil
 
 	return flag
-end
 end
 
 
