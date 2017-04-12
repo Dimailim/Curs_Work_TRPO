@@ -32,5 +32,5 @@ function lengthWord(size)
 end
 
 function charpos(position, char)
-	characters[position].text = char
+	characters[position].char = char
 end

@@ -4,7 +4,7 @@ function Game.load()
 	text= " "
 	h = human:new(400, 160, 0)
 	buttons= {}
-
+	--[[
 	--test buttons
 	local f = function ()
 		h.parts.number = 6
@@ -18,7 +18,7 @@ function Game.load()
 	b = buttonmenu:new(270, 10, "Стереть человечка", 250, 100, g)
 	table.insert(buttons, b)
 	--test buttons end
-
+	]]
 	for i = 1, 3 do
 		for j = 1, #ChoseKeyboard[i] do
 			b = button:new((kb.size + kb.padding) * (j - 1) + kb.spacing[i], (kb.size + kb.padding) * (i - 1) + kb.top, ChoseKeyboard[i][j])
@@ -47,11 +47,11 @@ function Game.draw()
 	for i=1, #buttons do
 		buttons[i]:draw()
 	end
-	
+
 	for i=1, #characters do
 		characters[i]:draw()
 	end
-	
+
 end
 
 function Game.mousepressed(x, y, button)
@@ -70,7 +70,7 @@ function generateWord()
 	math.randomseed(os.time())
 	chosenWord = math.random(#words)
 	text = words[chosenWord]
-	lengthWord(string.len(words[chosenWord]))
+	lengthWord(string.len(words[chosenWord]) / 2)
 end
 
 function getChar(char)
@@ -80,7 +80,8 @@ function getChar(char)
 		s = string.find(words[chosenWord], char, s + 1)
 		if s ~= nil then
 			flag = true
-			charpos(s,char)
+			print((math.floor(s / 2) + 1).." "..char)
+			charpos(math.floor(s / 2) + 1, char)
 		end
 	until s == nil
 
