@@ -28,7 +28,7 @@ function MainMenu.load()
 			153,
 			198
 		},
-		top = 400
+		top = 420
 	}
 	ChoseKeyboard = kb.alphabet
 end

@@ -2,7 +2,7 @@ Game = {}
 
 function Game.load()
 	text = " "
-	h = human:new(400, 160, 0)
+	h = human:new(600, 160, 0)
 	buttons= {}
 
 	--test buttons
@@ -47,11 +47,10 @@ function Game.draw()
 end
 --
 function Game.mousepressed(x, y, button)
-
 end
 --
 function Game.mousereleased(x, y, button)
-	h.parts.number = (h.parts.number + 1) % 7
+	
 
 	for i = 1, #buttons do
 			buttons[i]:mousereleased(x, y, button)
@@ -75,7 +74,7 @@ function getChar(char)
 			charpos(math.floor(s / 2) + 1, char)
 		end
 	until s == nil
-
+	
 	return flag
 end
 --
