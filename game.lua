@@ -47,13 +47,14 @@ function Game.draw()
 end
 --
 function Game.mousepressed(x, y, button)
+	for i = 1, #buttons do
+		buttons[i]:mousepressed(x, y, button)
+	end
 end
 --
 function Game.mousereleased(x, y, button)
-	
-
 	for i = 1, #buttons do
-			buttons[i]:mousereleased(x, y, button)
+		buttons[i]:mousereleased(x, y, button)
 	end
 end
 --
@@ -74,7 +75,7 @@ function getChar(char)
 			charpos(math.floor(s / 2) + 1, char)
 		end
 	until s == nil
-	
+
 	return flag
 end
 --

@@ -42,7 +42,7 @@ function MainMenu.draw()
 end
 --
 function MainMenu.mousepressed(x, y, button, istouch)
-
+	start:mousepressed(x,y,button)
 end
 --
 function MainMenu.mousereleased(x, y, button)

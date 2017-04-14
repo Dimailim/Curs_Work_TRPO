@@ -51,14 +51,13 @@ function button:onClick(button)
 		self.color = {255, 0, 0, 255}
 		h.parts.number = (h.parts.number + 1) % 7
 		if(h.parts.number == 6 ) then
-			changeState(MainMenu) -- Loose Screen 
-		end	
+			changeState(MainMenu) -- Loose Screen
+		end
 	end
 end
 --
-function button:mousepressed(x,y,button)
-	if mousepressed ~= self.pressed and
-	x >= self.x and x <= self.x + self.width
+function button:mousepressed(x, y, button)
+	if 	x >= self.x and x <= self.x + self.width
 	and y >= self.y and y <= self.y + self.height then
 		self.pressed = true
 	else
@@ -67,9 +66,9 @@ function button:mousepressed(x,y,button)
 end
 --
 function button:mousereleased(x, y, button)
-	if x >= self.x and x <= self.x + self.width
-	and y >= self.y and y <= self.y + self.height and 
-		self.pressed  then 
+	if  x >= self.x and x <= self.x + self.width
+	and y >= self.y and y <= self.y + self.height
+	and self.pressed then
 		self:onClick(button)
 	end
 end

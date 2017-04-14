@@ -10,6 +10,7 @@ function buttonmenu:new(x, y, text, width, height, f)
 	t.width = width or 40
 	t.height = height or width or 40
 	t.color = {255, 255, 255, 255}
+	t.pressed=false
 
 	if f ~= nil then
 		t.onClick = f
