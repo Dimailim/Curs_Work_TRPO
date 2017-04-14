@@ -22,8 +22,9 @@ function love.update(dt)
 end
 --
 function love.draw()
-	love.graphics.setFont(mainFont);
+	love.graphics.setFont(mainFont)
 	love.graphics.setColor(255, 255, 255, 255)
+	love.graphics.setLineWidth(1)
 	if state.draw then state.draw() end
 end
 --

@@ -19,6 +19,15 @@ end
 function button:draw()
 	love.graphics.setColor(self.color)
 	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
+
+	local s = 5
+	love.graphics.line(	self.x + self.width, self.y,
+						self.x + self.width + s, self.y + s,
+						self.x + self.width + s, self.y + self.height + s,
+						self.x + s, self.y + self.height + s,
+						self.x, self.y + self.height)
+	love.graphics.line(	self.x + self.width, self.y + self.height, self.x + self.width + s, self.y + self.height + s)
+
 	love.graphics.printf( self.char, self.x, self.y+self.height/2-mainFont:getHeight( )/2, self.width, "center" )
 
 	if self.color[2] ~= 255 then

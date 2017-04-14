@@ -22,7 +22,7 @@ function MainMenu.load()
 			{ 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я' }
 		},
 		size = 40,
-		padding = 5,
+		padding = 10,
 		spacing = {
 			120,
 			153,
