@@ -30,7 +30,9 @@ function Game.load()
 end
 --
 function Game.update(dt)
-
+	for i = 1, #buttons do 
+		buttons[i]:update(x, y, button) 
+	end 
 end
 --
 function Game.draw()

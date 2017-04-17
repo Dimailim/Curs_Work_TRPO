@@ -18,6 +18,7 @@ function love.update(dt)
 	--require("mobdebug").on()
 	mx, my = love.mouse.getPosition( )
 	if state.update then state.update(dt) end
+
 	--require("mobdebug").off()
 end
 --
