@@ -79,4 +79,3 @@ function getChar(char)
 	return flag
 end
 --
-
