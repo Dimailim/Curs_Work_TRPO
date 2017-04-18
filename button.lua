@@ -14,6 +14,7 @@ function button:new(x, y, text, width, height)
 	t.color = {255, 255, 255, 255}
 	t.pressed = false
 	t.mouse = false
+	t.drown =  0
 
 	return setmetatable(t, {__index = self})
 end
@@ -27,53 +28,38 @@ function button:update(dt)
 end
 --
 function button:draw()
-	if self.mouse then
-	love.graphics.setColor( self.color)
+	if self.pressed then 
 	self.color[4] = 255*0.5 
-	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
-
-	local s = 5
-	love.graphics.line(	self.x + self.width, self.y,
-						self.x + self.width + s, self.y + s,
-						self.x + self.width + s, self.y + self.height + s,
-						self.x + s, self.y + self.height + s,
-						self.x, self.y + self.height)
-	love.graphics.line(	self.x + self.width, self.y + self.height, self.x + self.width + s, self.y + self.height + s)
-
-	love.graphics.printf( self.char, self.x, self.y+self.height/2-mainFont:getHeight( )/2, self.width, "center" )
-
-	if self.color[2] ~= 255 then
-		love.graphics.line(self.x, self.y, self.x + self.width, self.y + self.height)
-		love.graphics.line(self.x + self.width, self.y, self.x, self.y + self.height)
-	end
-
-	if self.color[1] ~= 255 then
-		love.graphics.circle("line", self.x + self.width / 2, self.y + self.height / 2, math.min(self.width, self.height) / 2, 32)
-	end
-	else
+	self.drown = 3
+	else if self.mouse then 
 	self.color[4] = 255*0.8 
+	self.drown = 2
+	else 
+	self.color[4] = 255 
+	self.drown = 0
+end
+end
 	love.graphics.setColor(self.color)
-	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
-
+	love.graphics.rectangle("line", self.x+self.drown, self.y+self.drown, self.width, self.height+self.drown)
 	local s = 5
-	love.graphics.line(	self.x + self.width, self.y,
+	love.graphics.line(	self.x + self.drown + self.width, self.y + self.drown,
 						self.x + self.width + s, self.y + s,
 						self.x + self.width + s, self.y + self.height + s,
 						self.x + s, self.y + self.height + s,
-						self.x, self.y + self.height)
-	love.graphics.line(	self.x + self.width, self.y + self.height, self.x + self.width + s, self.y + self.height + s)
+						self.x + self.drown, self.y + self.height+self.drown)
+	love.graphics.line(	self.x + self.width + self.drown, self.y + self.height + self.drown, self.x + self.width + s, self.y + self.height + s)
 
-	love.graphics.printf( self.char, self.x, self.y+self.height/2-mainFont:getHeight( )/2, self.width, "center" )
+	love.graphics.printf( self.char, self.x + self.drown, self.y+self.height/2-mainFont:getHeight( )/2 + self.drown, self.width, "center" )
 
 	if self.color[2] ~= 255 then
-		love.graphics.line(self.x, self.y, self.x + self.width, self.y + self.height)
-		love.graphics.line(self.x + self.width, self.y, self.x, self.y + self.height)
+		love.graphics.line(self.x +  self.drown, self.y + self.drown, self.x + self.width +  self.drown, self.y + self.height +  self.drown)
+		love.graphics.line(self.x + self.width + self.drown, self.y +self.drown , self.x +  self.drown, self.y + self.height +  self.drown)
 	end
 
 	if self.color[1] ~= 255 then
-		love.graphics.circle("line", self.x + self.width / 2, self.y + self.height / 2, math.min(self.width, self.height) / 2, 32)
+		love.graphics.circle("line", self.x + self.width / 2 + self.drown, self.y + self.height / 2 + self.drown, math.min(self.width, self.height) / 2, 32)
 	end
-	end
+	
 end
 --
 function button:onClick(button)
